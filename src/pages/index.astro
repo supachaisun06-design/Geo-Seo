@@ -1,0 +1,117 @@
+---
+export const prerender = true;
+const title = "เช็กฟรี: AI แนะนำแบรนด์คุณหรือยัง? · BizGrow Tech AEO";
+const description = "เครื่องมือเช็กฟรีว่า ChatGPT / AI แนะนำธุรกิจคุณหรือยัง — AEO Checker โดย BizGrow Tech";
+---
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="navbar-logo">
+      <div class="logo-dot"></div>
+      <span><span class="logo-biz">BizGrow</span><span>Tech</span></span>
+      <span class="logo-tag">AEO Checker</span>
+    </a>
+    <a href="tel:0922824848" class="navbar-cta">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      092-282-4848
+    </a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>FREE · AEO Checker</div>
+      <h1 class="hero-title">เช็กฟรี: <span class="grad">AI แนะนำแบรนด์คุณ</span><br>หรือยัง?</h1>
+      <p class="hero-sub">ยุคนี้ลูกค้าถาม ChatGPT / Gemini ว่า "เจ้าไหนดี" — มาดูกันว่า AI พูดถึงธุรกิจคุณไหม ใช้เวลาแค่ 30 วินาที</p>
+      <div class="trust-row">
+        <span class="trust-pill"><svg width="12" height="12" fill="none" stroke="#6BBE28" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>ฟรี 100%</span>
+        <span class="trust-pill"><svg width="12" height="12" fill="none" stroke="#6BBE28" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>ถาม AI จริง</span>
+        <span class="trust-pill"><svg width="12" height="12" fill="none" stroke="#6BBE28" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>ผลใน 30 วิ</span>
+        <span class="trust-pill"><svg width="12" height="12" fill="none" stroke="#6BBE28" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>เห็นคู่แข่งที่ AI แนะนำ</span>
+      </div>
+      <div class="card">
+        <div id="form-section">
+          <div class="row2">
+            <div class="field"><label for="brand">ชื่อแบรนด์/ร้าน *</label><input id="brand" type="text" placeholder="เช่น คลินิก ABC" /></div>
+            <div class="field"><label for="url">เว็บไซต์/เพจ</label><input id="url" type="text" placeholder="เช่น mybrand.com" /></div>
+          </div>
+          <div class="field">
+            <label for="category">ประเภทธุรกิจ *</label>
+            <input id="category" type="text" placeholder="เช่น คลินิกกายภาพ, ร้านอาหาร, IT Support" />
+            <div class="hint">ยิ่งเจาะจง ผลยิ่งแม่น</div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="name">ชื่อคุณ *</label><input id="name" type="text" placeholder="ผู้ติดต่อ" /></div>
+            <div class="field"><label for="phone">เบอร์โทร *</label><input id="phone" type="tel" inputmode="tel" placeholder="08x-xxx-xxxx" /></div>
+          </div>
+          <div class="field">
+            <label for="keywords">คีย์เวิร์ดที่ต้องการให้ AI แนะนำ *</label>
+            <input id="keywords" type="text" placeholder="เช่น รับดูแลระบบ IT, อยากให้ AI แนะนำร้านฉัน" />
+          </div>
+          <div class="field"><label for="contact">LINE ID (ถ้ามี)</label><input id="contact" type="text" placeholder="LINE ID" /></div>
+          <button class="submit-btn" id="go-btn">🔍 เช็กฟรีเดี๋ยวนี้</button>
+        </div>
+        <div id="spin" style="display:none">
+          <div class="progress-bar"><i id="progress-i"></i></div>
+          <div class="spin-row">
+            <div class="spinner"></div>
+            <div>
+              <div class="spin-text">กำลังถาม AI จริง...</div>
+              <div class="spin-step" id="spin-step">เริ่มต้นการตรวจสอบ</div>
+            </div>
+          </div>
+        </div>
+        <div id="result" style="display:none"></div>
+      </div>
+      <p class="foot-note">BizGrow Tech · AEO/GEO สำหรับธุรกิจไทยยุค AI · bizgrowtech.com</p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="section-inner">
+      <div class="section-label">วิธีทำงาน</div>
+      <h2 class="section-title">เราเช็กอะไรให้คุณ?</h2>
+      <p class="section-sub">ระบบส่งคำถามจริงไปยัง AI แล้วนับว่าแบรนด์คุณถูกพูดถึงบ่อยแค่ไหน — คะแนน <strong>AI Share of Voice (SOV)</strong></p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><div class="step-title">กรอกข้อมูลแบรนด์</div><div class="step-desc">ชื่อแบรนด์, ประเภทธุรกิจ, คีย์เวิร์ดที่อยากให้ AI แนะนำ</div></div></div>
+        <div class="step"><div class="step-num">2</div><div><div class="step-title">ระบบถาม AI จริง 5 prompt</div><div class="step-desc">เช่น "ธุรกิจ [ประเภท] ที่ดีในไทยคืออะไร?" — แล้วดูว่า AI ตอบอะไร</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><div class="step-title">วิเคราะห์ 4 มิติ</div><div class="step-desc">SOV, ความถี่ที่ถูกพูดถึง, คู่แข่งที่ AI แนะนำ, prompt ที่ได้ผล</div></div></div>
+        <div class="step"><div class="step-num">4</div><div><div class="step-title">รับแผนแก้ไขฟรี</div><div class="step-desc">ทีม BizGrow Tech แนะนำสิ่งที่ต้องแก้ก่อน เพื่อให้ AI พูดถึงคุณมากขึ้น</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="section-label">คำถามที่พบบ่อย</div>
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q">AEO คืออะไร ต่างจาก SEO ยังไง?<svg class="faq-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">SEO คือการให้ Google แสดงเว็บในผลค้นหา — AEO คือการให้ AI อย่าง ChatGPT, Gemini พูดถึงและแนะนำแบรนด์คุณ</div></div>
+        <div class="faq-item"><button class="faq-q">คะแนน SOV คืออะไร?<svg class="faq-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Share of Voice (SOV) คือเปอร์เซ็นต์ที่ AI พูดถึงแบรนด์คุณ เช่น SOV 40% = AI แนะนำคุณใน 2 ใน 5 คำถาม</div></div>
+        <div class="faq-item"><button class="faq-q">เครื่องมือนี้ฟรีจริงไหม?<svg class="faq-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">ฟรี 100% ไม่มีค่าใช้จ่าย หลังจากเช็กแล้วทีมอาจติดต่อแนะนำบริการ AEO แต่ไม่บังคับ</div></div>
+        <div class="faq-item"><button class="faq-q">ถ้าได้ 0% ต้องทำอะไร?<svg class="faq-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">AI ยังไม่รู้จักแบรนด์คุณ — ยิ่งต้องรีบทำ AEO เพราะคู่แข่งอาจกำลังได้ลูกค้าจาก AI แทนคุณ</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-logo"><div class="logo-dot"></div><span class="foot-logo-text"><span class="logo-biz">BizGrow</span><span>Tech</span></span></div>
+    <p class="foot-desc">AEO · GEO · Digital Marketing สำหรับธุรกิจไทยยุค AI</p>
+    <div class="foot-links"><a href="https://bizgrowtech.com">เว็บหลัก</a><a href="tel:0922824848">092-282-4848</a><a href="#how">วิธีทำงาน</a><a href="#faq">FAQ</a></div>
+    <p class="foot-copy">&copy; 2025 BizGrow Tech. All rights reserved.</p>
+  </footer>
+
+  <script is:inline src="/app.js"></script>
+</body>
+</html>

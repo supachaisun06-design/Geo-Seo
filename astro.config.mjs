@@ -4,5 +4,10 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://aeo.bizgrowtech.com",
   output: "hybrid",
-  adapter: cloudflare({ mode: "directory" }),
+  adapter: cloudflare({
+    imageService: "cloudflare", // fix warnings
+    platformProxy: {
+      enabled: true
+    }
+  }),
 });

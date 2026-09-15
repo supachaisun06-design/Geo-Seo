@@ -36,11 +36,18 @@ async function probeAI(payload: AuditPayload, apiKey: string): Promise<AuditResu
 
   for (const msg of prompts) {
     try {
-      const r = await fetch("https://api.openai.com/v1/chat/completions", {
+      const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+          "HTTP-Referer": "https://aeo.bizgrowtech.com",
+          "X-Title": "BizGrow Tech AEO Checker"
+        },
         body: JSON.stringify({
-          model: "gpt-4o-mini", max_tokens: 300, temperature: 0.7,
+          model: "google/gemini-2.5-flash", // You can change this to any model supported by OpenRouter (e.g., openai/gpt-4o-mini)
+          max_tokens: 300,
+          temperature: 0.7,
           messages: [
             { role: "system", content: "คุณเป็นผู้ช่วย AI ที่แนะนำธุรกิจในประเทศไทย ตอบสั้นกระชับ" },
             { role: "user", content: msg }
@@ -88,7 +95,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (!payload.brand || !payload.category)
     return new Response(JSON.stringify({ error: "brand and category required" }), { status: 422 });
 
-  const apiKey = import.meta.env.OPENAI_API_KEY ?? "";
+  const apiKey = import.meta.env.OPENROUTER_API_KEY || import.meta.env.OPENAI_API_KEY ?? "";
   const result = apiKey ? await probeAI(payload, apiKey) : mockAudit(payload);
 
   return new Response(JSON.stringify(result), {
